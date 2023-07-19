@@ -42,14 +42,15 @@ typedef struct liststr
 	int n;
 	char *s;
 	struct liststr *next;
-} list_t
+} list_t;
+
 /**
  * struct passinfo - singly linked list
- * @arg: string 
+ * @arg: string
  * @argc: argument count
  * @argv: array of arguments
  * @alias: pointer to a member of list_t
- * @path: 
+ * @path: string path for the current command
  * @history: pointer to a member of list_t
  * @env: pointer to member of list_t
  * @environ: double pointer to string having environment variables
@@ -60,7 +61,7 @@ typedef struct liststr
  * @fname: stores file name
  * @hist_count: counts the history line number
  * @readfd: reads file from the line input
- * @cmd_buff_type: 
+ * @cmd_buff_type: command type
  * @cmd_buff: address of pointer to cmd_buff
  */
 typedef struct passinfo
