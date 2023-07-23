@@ -42,14 +42,15 @@ typedef struct liststr
 	int n;
 	char *s;
 	struct liststr *next;
-} list_t
+} list_t;
+
 /**
  * struct passinfo - singly linked list
- * @arg: string 
+ * @arg: string
  * @argc: argument count
  * @argv: array of arguments
  * @alias: pointer to a member of list_t
- * @path: 
+ * @path: string path for the current command
  * @history: pointer to a member of list_t
  * @env: pointer to member of list_t
  * @environ: double pointer to string having environment variables
@@ -60,7 +61,7 @@ typedef struct liststr
  * @fname: stores file name
  * @hist_count: counts the history line number
  * @readfd: reads file from the line input
- * @cmd_buff_type: 
+ * @cmd_buff_type: command type
  * @cmd_buff: address of pointer to cmd_buff
  */
 typedef struct passinfo
@@ -109,7 +110,7 @@ int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
-/* my loop_hsh.c */
+/* my_loop_hsh.c */
 int loophsh(char **);
 
 /* my_errors.c */
@@ -124,7 +125,7 @@ char _strlen(char *);
 char *start_with(const char *, const char *);
 char *_strcat(char *, char *);
 
-/* my strings.c */
+/* my_strings.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
@@ -147,7 +148,7 @@ void *_realloc(void *, unsigned int, unsigned int);
 /* my_memory.c */
 int bfree(void **);
 
-/* my atoi.c */
+/* my_atoi.c */
 int interactive(info_t *);
 int is_delim(char, char *);
 int _isalpha(int);
