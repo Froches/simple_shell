@@ -70,7 +70,7 @@ int _setenv(info_t *info, char *var, char *value)
 		return (0);
 
 	/*Allocate memory for a buff to hold the env var and its value*/
-	buf = malloc(_strlen(var) + _strlen(value) + 2);
+	buf = malloc(strlen(var) + strlen(value) + 2);
 	if (!buf)
 		return (1);
 	/*Construct the env var string in 'buf' in the format 'var=value'*/

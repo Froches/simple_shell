@@ -18,7 +18,7 @@ int hsh(info_t *info, char **av)
 		if (interactive(info))
 			_puts("$ ");
 		eputchar(BUF_FLUSH);
-		r = get_input(info);
+		r = _get_input(info);
 		if (r != -1)
 		{
 			set_info(info, av);
@@ -56,7 +56,7 @@ int find_builtin(info_t *info)
 {
 	int b, built_in_ret = -1;
 	built_ins builtintbl[] = {
-		{"exit", _myexit},
+		{"exit", _my_exit},
 		{"env", _myenv},
 		{"help", _myhelp},
 		{"history", _myhistory},

@@ -6,7 +6,7 @@
  * Return: allocated string containing file history
  */
 
-char* _get_history_file(info_t *info)
+char *_get_history_file(info_t *info)
 {
 	char *buf, *dir;
 
@@ -14,7 +14,7 @@ char* _get_history_file(info_t *info)
 	if (!dir)
 		return (NULL);
 
-	buf = malloc(sizeof(char) * (_strlen(dir) + (_strlen(HIST_FILE) + 2)));
+	buf = malloc(sizeof(char) * (strlen(dir) + (strlen(HIST_FILE) + 2)));
 
 	if (!buf)
 		return (NULL);

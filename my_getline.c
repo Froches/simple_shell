@@ -81,7 +81,7 @@ ssize_t _get_input(info_t *info)
 		}
 
 		*buf_p = p;
-		return (_strlen(p));
+		return (strlen(p));
 	}
 
 	*buf_p = buff;
