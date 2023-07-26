@@ -33,7 +33,7 @@ char *_get_history_file(info_t *info)
 int write_history(info_t *info)
 {
 	ssize_t fd;
-	char *filename = get_history_file(info);
+	char *filename = _get_history_file(info);
 	list_t *node = NULL;
 
 	if (!filename)
@@ -64,7 +64,7 @@ int read_history(info_t *info)
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;
-	char *buf = NULL, *filename = get_history_file(info);
+	char *buf = NULL, *filename = _get_history_file(info);
 
 	if (!filename)
 		return (0);

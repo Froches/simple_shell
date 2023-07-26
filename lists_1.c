@@ -97,3 +97,26 @@ list_t *node_starts_with(list_t *node, char *substring, char c)
 	}
 	return (NULL);
 }
+
+/**
+ * get_node_index - Get the index of a given node in a linked list
+ * @head: Pointer to the head of the linked list
+ * @node: Pointer to the node whose index needs to be found
+ *
+ * Return: Index of node in linked list, or -1 if node is not found.
+ */
+ssize_t get_node_index(list_t *head, list_t *node)
+{
+	size_t b = 0;
+
+	while (head)
+	{
+		/* Check if current node is same as given node */
+		if (head == node)
+			return (b); /*If found, return current index 'i'*/
+		/* Move to the next node in the linked list */
+		head = head->next;
+		b++;
+	}
+	return (-1);
+}
