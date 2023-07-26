@@ -41,6 +41,13 @@ char *_strdup(const char *str)
 		ret[length] = *--str;
 	return (ret);
 }
+
+/**
+ * _puts - function that prints a string to stdout
+ * @str: the string to print
+ *
+ * Return: nothing
+ */
 void _puts(char *str)
 {
 	int i = 0;
@@ -54,7 +61,7 @@ void _puts(char *str)
 	}
 }
 /**
- * _putchar: function that returns character
+ * _putchar - function that returns characters
  * @ch: character to be printed
  * Return: integer
  */

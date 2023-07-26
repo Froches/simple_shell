@@ -46,17 +46,30 @@ int _isalpha(int c)
  */
 int _atoi(char *str)
 {
-	int result = 0;
 	int sign = 1;
+	int flag = 0;
+	int output, i;
+	unsigned int result = 0;
 
-	while (*str == ' ' || *str == '\t')
-		str++;
-	if (*str == '-')
+	for (i = 0; str[i] != '\0' && flag != 2; i++)
 	{
-		sign = -1;
-		str++;
+		if (str[i] == '-')
+			sign *= -1;
+
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			flag = 1;
+			result *= 10;
+			result += (str[i] - '0');
+		}
+		else if (flag == 1)
+			flag = 2;
 	}
-	else if (*str == '+')
-	{
-		str++;
-	}
+
+	if (sign == -1)
+		output = -result;
+	else
+		output = result;
+
+	return (output);
+}

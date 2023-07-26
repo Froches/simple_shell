@@ -67,27 +67,29 @@ typedef struct liststr
 typedef struct passinfo
 {
 	char *arg;
-	int argc;
 	char **argv;
-	list_t alias;
 	char *path;
-	list_t *history;
-	list_t *env;
-	char **environ;
-	int env_change;
+	int argc;
+	unsigned int line_count;
 	int err_num;
-	int line_count_flag;
+	int linecount_flag;
+	char *fname;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char **environ;
+	int env_changed;
 	int status;
-	char fname;
 
-	int hist_count;
+	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+	int cmd_buf_type; /* CMD_type ||, &&, ; */
 	int readfd;
-	int cmd_buff_type;
-	char **cmd_buff;
+	int histcount;
 } info_t;
 
 #define INFO_INIT \
-{NULL, O, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, NULL, 0, 0, 0, NULL}
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+		0, 0, 0}
 /**
  * struct built_in - structure that has built_in functions in it
  * @type: strng representing the type of built in command
@@ -115,13 +117,13 @@ int loophsh(char **);
 
 /* my_errors.c */
 void eputs(char *);
-int eputchar(char *);
+int eputchar(char);
 int putfd(char c, int fd);
 int putsfd(char *s, int fd);
 
 /* my_string.c */
-char _strcmp(char *, char *);
-char _strlen(char *);
+int _strcmp(char *, char *);
+int _strlen(char *);
 char *start_with(const char *, const char *);
 char *_strcat(char *, char *);
 
@@ -129,12 +131,12 @@ char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
-int *_putchar(char);
+int _putchar(char);
 
 /* my_exits.c */
 char *_strncat(char *, char *, int);
 char *_strncpy(char *, char *, int);
-char strchr(char *, char *);
+char *_strchr(char *, char);
 
 /* my_tokenizer.c */
 char **strtow(char *, char *);
